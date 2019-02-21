@@ -2,36 +2,41 @@
 
 using namespace std;
 
-//Function to find the multiples
-int findIfMultiple(int);
+int calFib_EvenSum(int[2]); //Finds the total sum of the even-valued terms
 
-//MAX we're searching for
-const int MAX = 1000;
-const int multipleA = 3; //First multiple we're searching for
-const int multipleB = 5; //Second multiple we're searching for
+const int MAX = 4000000; //Max for the fib values
 
 int main(){
-	int sum;
+	int fib[2]= {1,1}; //Array
+	int sum; //the sum
 	
-	cout << "Find the sum of all the multiples of " << multipleA << " or " <<
-			multipleB << " below " << MAX << "." << endl; //Find the sum
+	sum = calFib_EvenSum(fib); //Find sum
 	
-	for(int i; i < MAX; i++){
-		sum += findIfMultiple(i); //run until max is reached
-	}
-	
-	cout << "The sum is: " << sum << endl; //Display the sum
+	cout << "The sum of the even valued terms are: " << sum; //Display the sum
 	
 	return 0;
 }
 
-int findIfMultiple(int i){
-	if((i%multipleA == 0) || (i%multipleB == 0)){
-		cout << i << endl; //Display current multiple
+int calFib_EvenSum(int fib[2]){
+	int funcEvenSum;
+	
+	/*for(int i = 1; i < MAX; i++){ // To test if it'll get the first 10 terms and spit out
+	//the even sum*/
+	for(int storedValue = 0; storedValue < MAX;){ //Loop as long as the digit does not exceed max
+		storedValue = fib[0] + fib[1]; //Assign the storedValue with the sum of fib[0] and fib[1]
 		
-		return i; //Return the variable
-	}else{
+		//Actually display it to the command line as well
+		cout << fib[0] << " + " << fib[1] << " = " << storedValue << endl;
 		
-		return 0; //Else return to the sum 0
+		//If the storedValue has no remainder when divided by 0, add it to the funcEvenSum
+		if(storedValue%2==0){
+			funcEvenSum += storedValue;
+		}
+		
+		//Set the fibs to their new integers in the sequence
+		fib[0] = fib[1];
+		fib[1] = storedValue;
 	}
+	
+	return funcEvenSum;
 }
