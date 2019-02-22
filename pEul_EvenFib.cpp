@@ -20,8 +20,6 @@ int main(){
 int calFib_EvenSum(int fib[2]){
 	int funcEvenSum;
 	
-	/*for(int i = 1; i < MAX; i++){ // To test if it'll get the first 10 terms and spit out
-	//the even sum*/
 	for(int storedValue = 0; storedValue < MAX;){ //Loop as long as the digit does not exceed max
 		storedValue = fib[0] + fib[1]; //Assign the storedValue with the sum of fib[0] and fib[1]
 		
