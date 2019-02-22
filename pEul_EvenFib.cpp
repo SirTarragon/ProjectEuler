@@ -7,7 +7,7 @@ int calFib_EvenSum(int[2]); //Finds the total sum of the even-valued terms
 const int MAX = 4000000; //Max for the fib values
 
 int main(){
-	int fib[2]= {1,2}; //Array
+	int fib[2]= {1,1}; //Array
 	int sum; //the sum
 	
 	sum = calFib_EvenSum(fib); //Find sum
@@ -18,7 +18,7 @@ int main(){
 }
 
 int calFib_EvenSum(int fib[2]){
-	int funcEvenSum = 2;
+	int funcEvenSum;
 	
 	/*for(int i = 1; i < MAX; i++){ // To test if it'll get the first 10 terms and spit out
 	//the even sum*/
